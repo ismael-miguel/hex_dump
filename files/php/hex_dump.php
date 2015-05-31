@@ -76,7 +76,7 @@
 		
 		$line_count = count( $lines );
 		
-		$num_length = strlen( dechex( $lines ) ) + 1;
+		$num_length = strlen( dechex( $line_count ) ) + 1;
 		$num_length = $num_length + ( $num_length % 2 );
 		
 		$header = str_repeat( ' ',  $num_length ) . ' |';
