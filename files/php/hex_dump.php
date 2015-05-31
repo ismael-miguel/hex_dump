@@ -88,11 +88,10 @@
 		
 		echo $header, PHP_EOL;
 		
-		$separator = str_repeat( '-', strlen( $header) );
+		$separator = str_repeat( '-', strlen( $header ) );
 		
 		foreach( $lines as $current_line => &$line )
 		{
-		
 			echo $separator, PHP_EOL;
 			
 			//the number must be padded with 0s in the beginning, to the size of the highest line number
@@ -117,7 +116,7 @@
 				if( $value == '--' )
 				{
 					// replacement character, for invalid values on byte arrays
-					echo "\xFC";
+					echo "\xEF\xBF\xBD";
 				}
 				else
 				{
@@ -137,7 +136,7 @@
 			'time' => microtime(true) - $start_time
 		);
 		
-		echo str_repeat( '=', strlen( $header) ), PHP_EOL;
+		echo str_repeat( '=', strlen( $separator ) ), PHP_EOL;
 		echo str_pad( 'Lines: ' . $stats['lines'], 15, ' '), '| ';
 		echo str_pad( 'Bytes: ' . $stats['bytes'], 16, ' '), '| ';
 		echo 'Time: ', $stats['time'], 'ms', PHP_EOL, PHP_EOL;
